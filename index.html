@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TOP Conctraction</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<div id="loginBox" class="loginCard">
+  <h2>🔐 Admin Login</h2>
+  <input type="password" id="password" placeholder="Enter Password">
+  <button onclick="loginAdmin()">Login</button>
+</div>
+
+<div id="dashboard" class="container">
+  <h1>🏗 TOP Conctraction</h1>
+
+  <div class="card">
+    <h3>Workers Management</h3>
+    <input type="text" id="newWorker" placeholder="Enter Worker Name">
+    <button onclick="addWorker()">Add Worker</button>
+    <ul id="workerList"></ul>
+  </div>
+
+  <div class="card">
+    <h3>Daily Task Submission</h3>
+    <label>Project
+      <select id="project">
+        <option>Project 1</option>
+        <option>Project 2</option>
+      </select>
+    </label>
+    <label>Worker
+      <select id="workerSelect"></select>
+    </label>
+    <label>Category
+      <select id="category">
+        <option>Emergency</option>
+        <option>Consumable</option>
+        <option>Ordered Items</option>
+      </select>
+    </label>
+    <label>Quantity
+      <input type="number" id="quantity">
+    </label>
+    <button onclick="submitTask()">Submit</button>
+    <ul id="taskList"></ul>
+  </div>
+
+  <div class="card">
+    <h3>Payroll System</h3>
+    <input type="text" id="name" placeholder="Worker Name">
+    <input type="number" id="rate" placeholder="Daily Wage">
+    <input type="number" id="days" placeholder="Days Worked">
+    <button onclick="addPayroll()">Add Worker</button>
+    <table>
+      <thead>
+        <tr><th>Name</th><th>Rate</th><th>Days</th><th>Total</th><th>Action</th></tr>
+      </thead>
+      <tbody id="payrollBody"></tbody>
+    </table>
+    <button onclick="exportPDF()">Export PDF</button>
+  </div>
+
+  <div class="card">
+    <h3>📊 Weekly Task Report</h3>
+    <canvas id="taskChart"></canvas>
+  </div>
+
+  <div class="card">
+    <h3>💾 Backup / Export JSON</h3>
+    <button onclick="backupData()">Backup All Data</button>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
